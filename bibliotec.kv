@@ -1,0 +1,407 @@
+<Menu>: 
+    FloatLayout:
+        padding: 200
+        orientation: 'vertical' 
+        Image:
+            source:'fotobiblio.jpeg'
+            size_hint_y:None
+            height:800
+            allow_stretch: True 
+            pos_hint:{'x':.25}
+        Label:
+            text:'Bibliotec'
+            font_size:60  
+            pos_hint:{'x':-.3,'y':.3}   
+        Label:
+            text:'Biblioteca Digital'
+            font_size:40 
+            pos_hint:{'x':-.22,'y':.23}   
+        Button:
+            size_hint: (0.2,0.08) 
+            pos_hint:{'x':.2,'y':.55}  
+            background_normal:'white'
+            color:'black'
+            text:'Acesso Estudante'
+            font_size:25  
+            on_release:app.root.current = 'conta'   
+        Button:
+            background_normal:'white'
+            color:'black'
+            text:'Acesso Interno'
+            on_release:app.root.current = 'interno'
+            pos_hint:{'x':.2,'y':.35} 
+            size_hint: (0.2,0.08) 
+            font_size:25    
+
+<Conta>:  
+    FloatLayout: 
+        padding: 100
+        orientation:'vertical'
+        Label:
+            text:'Acesso à Conta'
+            color:'green'
+            font_size:50 
+            pos_hint:{'x':.02,'y':.3}    
+        Label:
+            text: 'Registro Acadêmico:'
+            font_size:30
+            pos_hint:{'x':-.25,'y':.1}   
+        TextInput:
+            id:RA
+            font_size:20
+            size_hint: (0.4,0.08)
+            pos_hint:{'x':.36,'y':.55}
+        Label:
+            text: 'Senha:'
+            font_size:30
+            pos_hint:{'x':-.18,'y':-.05}
+        TextInput:
+            id:SENHA
+            password: True
+            font_size:20
+            size_hint: (0.4,0.08)
+            pos_hint:{'x':.36,'y':.4}
+        Button:
+            background_normal:'white'
+            color:'black'
+            text:'Entrar' 
+            font_size:30
+            on_press:app.check_aluno()
+            size_hint: (0.15,0.1)
+            pos_hint:{'x':.5, 'y':.2}
+        Button:
+            background_normal:'white'
+            color:'black'
+            text:'Voltar ao menu' 
+            on_press:app.clear_text()
+            on_release:app.root.current = 'menu' 
+            size_hint: (0.1,0.1) 
+            pos_hint:{'x':.05,'y':.05}
+#Codificação da Tela no arquivo Kivy .kv            
+<Emprestimo1>
+    FloatLayout: 
+        Image:
+            source:'livros.jpg'
+            size_hint_y:None
+            height:700
+            allow_stretch: True 
+            pos_hint:{'x':.25}
+        Label:
+            text:'Empréstimos'
+            font_size:50 
+            pos_hint:{'x':-.2, 'y':.35}
+        
+        Button:
+            background_normal:'white'
+            color:'black'
+            text:'Devolver Livro'  
+            on_release:app.root.current = 'emprestar'
+            on_press:app.delete()
+            pos_hint:{'x':.15,'y':.5} 
+            size_hint: (0.3,0.1)  
+            font_size:35
+        Button:
+            background_normal:'white'
+            color:'black'
+            text:'Realizar Empréstimo'  
+            on_release:app.root.current = 'emprestar'
+            on_press: app.insert()
+            pos_hint:{'x':.15,'y':.65} 
+            size_hint: (0.3,0.1)  
+            font_size:35     
+        Button:
+            background_normal:'white'
+            color:'black'
+            text:'Voltar ao menu' 
+            on_release:app.root.current = 'menu' 
+            on_press:app.clear_text()
+            size_hint: (0.1,0.1) 
+            pos_hint:{'x':.05,'y':.05}
+
+<AcessoInterno>   
+    FloatLayout:
+        padding: 100
+        orientation:'vertical'
+        Label:
+            text:'Acesso Interno'
+            font_size:50 
+            pos_hint:{'x':.02,'y':.3}    
+        Label:
+            text: 'Matricula:'
+            font_size:30
+            pos_hint:{'x':-.19,'y':.1}   
+        TextInput:
+            id: MATRICULA
+            font_size:20
+            size_hint: (0.4,0.08)
+            pos_hint:{'x':.36,'y':.55}  
+        Label:
+            text: 'Senha:'
+            font_size:30
+            pos_hint:{'x':-.18,'y':-.05}
+        TextInput:
+            id: SENHA
+            font_size:20
+            size_hint: (0.4,0.08)
+            pos_hint:{'x':.36,'y':.4}
+            password:True
+        Button:
+            background_normal:'white'
+            color:'black'
+            text:'Entrar' 
+            font_size:30
+            on_release:app.check_interno()
+            size_hint: (0.15,0.1)
+            pos_hint:{'x':.5, 'y':.2}
+        Button:
+            background_normal:'white'
+            color:'black'
+            text:'Voltar ao menu'
+            on_press:app.clear_text()
+            on_release:app.root.current = 'menu' 
+            size_hint: (0.1,0.1) 
+            pos_hint:{'x':.05,'y':.05}
+
+<AcessoInterno2>:
+    FloatLayout:
+        Image:    
+            source:'livroac.jpeg'
+            size_hint_y:None
+            height:720
+            allow_stretch: True 
+            pos_hint:{'x':.27}
+        Label:
+            text:'Acesso Interno'
+            font_size:50 
+            pos_hint:{'x':-0.2,'y':.35}
+        Button:
+            background_normal:'white'
+            color:'black'
+            text:'Cadastrar Aluno'
+            size_hint:(0.2,0.1)
+            pos_hint:{'x':.2,'y':.6}
+            on_release: app.root.current = 'al_cadastrar'
+            font_size:30
+        Button:
+            background_normal:'white'
+            color:'black'
+            text:'Cadastrar Livro'
+            font_size:30
+            on_release: app.root.current = 'li_cadastrar'
+            size_hint:(0.2,0.1)
+            pos_hint:{'x':.2,'y':.45}
+        Button:
+            background_normal:'white'
+            color:'black'
+            text:'Realizar Consulta'
+            on_release: app.root.current = 'testpesq'
+            font_size:30
+            size_hint:(0.2,0.1)
+            pos_hint:{'x':.2,'y':.3}         
+        Button:
+            background_normal:'white'
+            color:'black'
+            text:'Voltar ao menu' 
+            on_release:app.root.current = 'menu' 
+            size_hint: (0.1,0.1) 
+            pos_hint:{'x':.05,'y':.05}
+        Button:
+            background_normal:'white'
+            color:'black'
+            text:'Voltar ao menu' 
+            on_release:app.root.current = 'menu' 
+            on_press:app.clear_text()
+            size_hint: (0.1,0.1) 
+            pos_hint:{'x':.05,'y':.05}    
+
+<CadastrarAlunos>:
+    FloatLayout:
+        Label:
+            text: 'Nome:'
+            font_size:25
+            pos_hint:{'x':-0.35,'y':.20}
+        Label:
+            text: 'RA:'
+            font_size:25
+            pos_hint:{'x':0.08,'y':.20}
+        Label:
+            text: 'E-mail:'
+            font_size:25
+            pos_hint:{'x':-0.35,'y':.05}
+        Label:
+            text: 'Curso:'
+            font_size:25
+            pos_hint:{'x':-0.35,'y':-0.1} 
+        Label:
+            text: 'Senha:'
+            font_size:25
+            pos_hint:{'x':-0.35,'y':-0.25} 
+        Label:
+            text:'Cadastro de Estudantes'
+            font_size:45
+            color: 'blue'
+            pos_hint:{'x':0,'y':0.35} 
+        TextInput:
+            id: NOME
+            font_size:20
+            size_hint: (0.35,0.06)
+            pos_hint:{'x':.18,'y':.67}
+        TextInput:
+            id: RA
+            font_size:20
+            size_hint: (0.15,0.06)
+            pos_hint:{'x':0.6,'y':.67} 
+        TextInput:
+            id: EMAIL
+            font_size:20
+            size_hint: (0.35,0.06)
+            pos_hint:{'x':.18,'y':.52}
+        TextInput:
+            id: CURSO
+            font_size:20
+            size_hint: (0.35,0.06)
+            pos_hint:{'x':.18,'y':.37}
+        TextInput:
+            id: SENHA
+            password: True
+            font_size:20
+            size_hint: (0.35,0.06)
+            pos_hint:{'x':.18,'y':.22} 
+        Button:
+            background_normal:'white'
+            color:'black'
+            text:'Voltar' 
+            on_release:app.root.current = 'ac_interno' 
+            on_press:app.clear_text()
+            size_hint: (0.06,0.06) 
+            pos_hint:{'x':.05,'y':.05}  
+        Button:
+            background_normal:'red'
+            color:'black'
+            text:'Salvar'
+            font_size: 30 
+            on_press:app.cadastrar_aluno()
+            size_hint: (0.1,0.1) 
+            pos_hint:{'x':.5,'y':.05}                     
+
+#titulo, autor, categoria,codigo
+<CadastrarLivros>:
+    FloatLayout:
+        Label:
+            text:'Cadastro de Livros'
+            font_size:45
+            color: 'red'
+            pos_hint:{'x':0,'y':0.35}
+        Label:
+            text: 'Título:'
+            font_size:25
+            pos_hint:{'x':-0.35,'y':.20}
+        Label:
+            text: 'Código:'
+            font_size:25
+            pos_hint:{'x':0.09,'y':.20}
+        Label:
+            text: 'Autor:'
+            font_size:25
+            pos_hint:{'x':-0.35,'y':.05}
+        Label:
+            text: 'Categoria:'
+            font_size:25
+            pos_hint:{'x':-0.37,'y':-0.1}
+        TextInput:
+            id: TITULO
+            font_size:20
+            size_hint: (0.35,0.06)
+            pos_hint:{'x':.18,'y':.67}
+        TextInput:
+            id: CODIGO
+            font_size:20
+            size_hint: (0.15,0.06)
+            pos_hint:{'x':0.63,'y':.67} 
+        TextInput:
+            id: AUTOR
+            font_size:20
+            size_hint: (0.35,0.06)
+            pos_hint:{'x':.18,'y':.52}
+        TextInput:
+            id: CATEGORIA
+            font_size:20
+            size_hint: (0.35,0.06)
+            pos_hint:{'x':.18,'y':.37}
+        Button:
+            background_normal:'white'
+            color:'black' 
+            size_hint: (0.1,0.06) 
+            pos_hint:{'x':.8,'y':.67}
+            on_press: app.scan_codigo()
+            text:'Scanear codigo'
+        Button:
+            background_normal:'white'
+            color:'black'
+            text:'Voltar' 
+            on_release:app.root.current = 'ac_interno' 
+            on_press:app.clear_text()
+            size_hint: (0.06,0.06) 
+            pos_hint:{'x':.05,'y':.05}  
+        Button:
+            background_normal:'red'
+            color:'black'
+            text:'Salvar'
+            font_size: 30 
+            on_press:app.cadastrar_livro()
+            size_hint: (0.1,0.1) 
+            pos_hint:{'x':.5,'y':.05}       
+
+<InfoButton>:
+    canvas.before:
+        Color:
+            rgba: (.0, 0.9, .1, .3) if self.selected else (0, 0, 0, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<Info>:
+    BoxLayout:
+        orientation: "vertical"
+
+        GridLayout:
+            size_hint: 1, None
+            size_hint_y: None
+            height: 25
+            cols: 6
+
+            Label:
+                text: "ID"
+            Label:
+                text: "Titulo"
+            Label:
+                text: "RA"
+            Label:
+                text: "Nome"
+            Label:
+                text: "Horário de emprestimo"
+            Label:
+                text: "Data de devolucao"
+
+        BoxLayout:
+            RecycleView:
+                viewclass: 'InfoButton'
+                data: [{'text': str(x)} for x in root.data_items]
+                InfoLayout:
+                    cols: 6
+                    default_size: None, dp(26)
+                    default_size_hint: 1, None
+                    size_hint_y: None
+                    height: self.minimum_height
+                    orientation: 'lr-tb'
+                    multiselect: True
+                    touch_multiselect: True
+        Button:
+            background_normal:'white'
+            color:'black'
+            text:'Voltar' 
+            font_size:25
+            on_release:app.root.current = 'ac_interno' 
+            size_hint: (0.1,0.1) 
+            orientation: 'bt-lr'
+            pos_hint:{'x':.05}
